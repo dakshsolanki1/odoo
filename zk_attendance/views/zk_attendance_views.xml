@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_zk_device_tree" model="ir.ui.view">
+        <field name="name">zk.device.tree</field>
+        <field name="model">zk.attendance.sync</field>
+        <field name="arch" type="xml">
+            <tree string="Biometric Devices">
+                <field name="name"/>
+                <field name="device_ip"/>
+                <field name="device_port"/>
+                <field name="last_sync"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_zk_device_form" model="ir.ui.view">
+        <field name="name">zk.device.form</field>
+        <field name="model">zk.attendance.sync</field>
+        <field name="arch" type="xml">
+            <form string="Indentix K90 Pro+">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="device_ip" placeholder="e.g. 192.168.1.201"/>
+                        <field name="device_port"/>
+                        <field name="last_sync" readonly="1"/>
+                    </group>
+                </sheet>
+                <footer>
+                    <button name="test_connection" type="object" string="Test Connection" class="btn-secondary"/>
+                    <button name="sync_now" type="object" string="Sync Now" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <menuitem id="menu_zk_root" name="Biometric Attendance" sequence="80"/>
+    <menuitem id="menu_zk_devices" name="Devices" parent="menu_zk_root" action="action_zk_devices"/>
+
+    <record id="action_zk_devices" model="ir.actions.act_window">
+        <field name="name">Biometric Devices</field>
+        <field name="res_model">zk.attendance.sync</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

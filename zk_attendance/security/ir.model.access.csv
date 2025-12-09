@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_zk_attendance_sync,zk.attendance.sync,model_zk_attendance_sync,,1,1,1,1
+access_zk_attendance_log,zk.attendance.log,model_zk_attendance_log,,1,0,0,0
